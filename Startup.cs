@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MySqlConnector;
+using racoon_api.Repositories;
 using racoon_api.Services;
 
 namespace chore;
@@ -39,6 +40,7 @@ public class Startup
     services.AddScoped<AccountService>();
 
     services.AddScoped<RacoonsService>();
+    services.AddScoped<RacoonsRepository>();
   }
 
   private void ConfigureCors(IServiceCollection services)
