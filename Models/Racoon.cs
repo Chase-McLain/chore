@@ -9,7 +9,7 @@ public class Racoon
   public string Name { get; set; }
   public int Age { get; set; }
   public string color { get; set; }
-  public bool isCool { get; set; }
+  public bool IsCool { get; set; }
 
 }
 

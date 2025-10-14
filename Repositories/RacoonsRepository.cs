@@ -26,11 +26,18 @@ public class RacoonsRepository
     return racoons;
   }
 
+  internal Racoon createRacoon(Racoon racoondata)
+  {
+    string sql = @"
+    INSERT INTO
+    racoons
+    (name, color, age, isCool)
+    VALUES (@Name, @Color, @Age, @IsCool);
+    SELECT * FROM racoons WHERE id = LAST_INSERT_ID();";
 
-
-
-
-
+    Racoon racoon = _db.Query<Racoon>(sql, racoondata).SingleOrDefault();
+    return racoon;
+  }
 }
 
 

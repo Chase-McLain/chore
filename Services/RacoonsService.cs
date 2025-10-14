@@ -24,15 +24,9 @@ public class RacoonsService
     return racoons;
   }
 
-
-
-
-
-
-
-
-
-
-
-
+  internal Racoon createRacoon(Racoon racoondata)
+  {
+    Racoon racoon = _racoonsRepository.createRacoon(racoondata);
+    return racoon;
+  }
 }
