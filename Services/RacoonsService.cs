@@ -17,11 +17,16 @@ public class RacoonsService
     _racoonsRepository = racoonsRepository;
   }
 
-
   public List<Racoon> getAllRacoons()
   {
     List<Racoon> racoons = _racoonsRepository.getAllRacoons();
     return racoons;
+  }
+
+  public Racoon getRacoonById(int racoonId)
+  {
+    Racoon racoon = _racoonsRepository.getRacoonById(racoonId);
+    return racoon;
   }
 
   internal Racoon createRacoon(Racoon racoondata)
@@ -34,4 +39,5 @@ public class RacoonsService
   {
     _racoonsRepository.deleteRacoon(racoonId);
   }
+
 }

@@ -26,7 +26,15 @@ public class RacoonsRepository
     return racoons;
   }
 
-  internal Racoon createRacoon(Racoon racoondata)
+  internal Racoon getRacoonById(int racoonId)
+  {
+    string sql = "SELECT * FROM racoons WHERE id = @racoonId;";
+    object paramOBJ = new { racoonId = racoonId };
+    Racoon racoon = _db.Query<Racoon>(sql, paramOBJ).SingleOrDefault();
+    return racoon;
+  }
+
+  public Racoon createRacoon(Racoon racoondata)
   {
     string sql = @"
     INSERT INTO
@@ -52,6 +60,7 @@ public class RacoonsRepository
       throw new Exception("Failed to eleminate racoon");
     }
   }
+
 }
 
 

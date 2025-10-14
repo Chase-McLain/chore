@@ -29,6 +29,20 @@ public class RacoonsController : ControllerBase
     }
   }
 
+  [HttpGet("{racoonId}")]
+  public ActionResult<Racoon> getRacoonById(int racoonId)
+  {
+    try
+    {
+      Racoon racoon = _racoonsService.getRacoonById(racoonId);
+      return racoon;
+    }
+    catch (Exception exception)
+    {
+      return BadRequest(exception.Message);
+    }
+  }
+
   [HttpPost]
   public ActionResult<Racoon> createRacoon([FromBody] Racoon racoondata)
   {
