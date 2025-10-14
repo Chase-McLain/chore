@@ -43,7 +43,19 @@ public class RacoonsController : ControllerBase
     }
   }
 
-
+  [HttpDelete("{racoonId}")]
+  public ActionResult<string> deleteRacoon(int racoonId)
+  {
+    try
+    {
+      _racoonsService.deleteRacoon(racoonId);
+      return Ok("Racoon has perished.");
+    }
+    catch (Exception exception)
+    {
+      return BadRequest(exception.Message);
+    }
+  }
 
 
 

@@ -38,6 +38,20 @@ public class RacoonsRepository
     Racoon racoon = _db.Query<Racoon>(sql, racoondata).SingleOrDefault();
     return racoon;
   }
+
+  public void deleteRacoon(int racoonId)
+  {
+    string sql = "DELETE FROM racoons WHERE id = @racoonId";
+
+    object paramOBJ = new { racoonId = racoonId };
+
+    int rows = _db.Execute(sql, paramOBJ);
+
+    if (rows != 1)
+    {
+      throw new Exception("Failed to eleminate racoon");
+    }
+  }
 }
 
 

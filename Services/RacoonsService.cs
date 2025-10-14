@@ -29,4 +29,9 @@ public class RacoonsService
     Racoon racoon = _racoonsRepository.createRacoon(racoondata);
     return racoon;
   }
+
+  public void deleteRacoon(int racoonId)
+  {
+    _racoonsRepository.deleteRacoon(racoonId);
+  }
 }
