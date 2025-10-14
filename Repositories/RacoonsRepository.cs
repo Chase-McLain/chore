@@ -9,10 +9,28 @@ namespace racoon_api.Repositories;
 
 public class RacoonsRepository
 {
-  internal List<Racoon> getAllRacoons()
+
+  private readonly IDbConnection _db;
+
+
+  public RacoonsRepository(IDbConnection db)
   {
-    throw new NotImplementedException();
+    _db = db;
   }
+
+
+  public List<Racoon> getAllRacoons()
+  {
+    string sql = "SELECT * FROM racoons;";
+    List<Racoon> racoons = _db.Query<Racoon>(sql).ToList();
+    return racoons;
+  }
+
+
+
+
+
+
 }
 
 
